@@ -1,0 +1,256 @@
+:root {
+  --tile-width: 22px;
+  --tile-height: 22px;
+}
+
+body {
+  margin: 0;
+  border: 0;
+  color: #333;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: fit-content;
+  padding: 0 0 10px 0;
+}
+
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-spacing: 0;
+}
+
+details {
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 10px;
+}
+
+summary {
+  outline: none;
+}
+
+.controls {
+  left: 0;
+  border: 0;
+  padding: 0;
+  z-index: 11;
+  width: 64px;
+  height: 42px;
+  cursor: pointer;
+  line-height: 42px;
+  user-select: none;
+  position: absolute;
+  text-align: center;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: 300ms ease all;
+}
+
+.controls input {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 13px;
+  font-weight: 600;
+  text-indent: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: monospace;
+  background-color: #fff;
+}
+
+.controls svg {
+  fill: #555;
+  pointer-events: none;
+}
+
+.controls:hover {
+  background-color: rgb(242 242 242);
+}
+
+.toolbar {
+  top: 0;
+  right: 0;
+  z-index: 11;
+  position: absolute;
+  background-color: transparent;
+}
+
+.toolbar table {
+  width: auto;
+  table-layout: fixed;
+  border-spacing: 1px;
+}
+
+.toolbar table tr td {
+  padding: 0;
+  width: 48px;
+  height: 38px;
+  cursor: pointer;
+  user-select: none;
+  line-height: 38px;
+  text-align: center;
+  transition: 300ms ease all;
+}
+
+.toolbar table tr td:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.toolbar table tr td svg {
+  fill: #555;
+  pointer-events: none;
+  vertical-align: middle;
+}
+
+.picker {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.picker .fill {
+  padding: 0;
+  text-align: center;
+}
+
+.picker .fill p {
+  color: #333;
+  font-size: 12px;
+  cursor: default;
+  text-align: center;
+  margin: 150px 0 0 0;
+}
+
+.picker .fill input {
+  border: 0;
+  padding: 0;
+  color: #555;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 40px;
+  text-indent: 10px;
+  letter-spacing: 1px;
+  font-family: monospace;
+}
+
+.picker .fill input:nth-child(even) {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.picker .fill input:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.picker .button {
+  border: 0;
+  width: 50%;
+  color: #8c8c8c;
+  font-size: 13px;
+  position: relative;
+  background-size: 64px !important;
+  background-color: rgba(0,0,0,0.1);
+}
+
+div[class*="-tiles"] {
+  margin: auto;
+  height: auto;
+  padding: 10px;
+  width: calc(100% - 50px);
+}
+
+div[class*="-tiles"] input {
+  border: 0;
+  padding: 0;
+  margin: 1px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 0;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  width: var(--tile-width);
+  height: var(--tile-height);
+  min-width: var(--tile-width);
+  max-width: var(--tile-width);
+  min-height: var(--tile-height);;
+  max-height: var(--tile-height);;
+}
+
+div[class*="-tiles"] input:hover {
+  transform: scale(2);
+}
+
+.picker, 
+div[class*="-tiles"] input {
+  transition: 150ms ease all;
+  font-family: arial, sans-serif;
+}
+
+.msc-content {
+  font-family: arial,sans-serif;
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  color: #333;
+  height: 38px;
+  font-size: 13px;
+  line-height: 38px;
+  text-indent: 10px;
+  letter-spacing: 1px;
+  font-family: monospace;
+  text-transform: uppercase;
+}
+
+#picker {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  visibility: hidden;
+  background-color: transparent;
+}
+
+#tilesize {top: 196px}
+#clear {top: calc(0 * 42px + 1 * 1px)}
+#eyedropper {top: calc(2 * 42px + 3 * 1px)}
+#colorpicker {top: calc(1 * 42px + 2 * 1px)}
+
+@media (max-width: 500px) {
+  .size, .toolbar {
+    display: none;
+  }
+}
+
+@-moz-document url-prefix() {
+  .title,
+  .size input,
+  .picker .fill input {
+    font-size: 12px;
+    font-weight: normal;
+    font-family: monaco, "andale mono", "lucida console", "courier new", monospace;
+  }
+}
+
+html[context="webapp"] .toolbar {
+  display: none;
+}
